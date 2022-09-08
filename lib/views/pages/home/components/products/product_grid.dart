@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foddies/controllers/home_controller.dart';
+import 'package:foddies/views/pages/See_all/see_all_product.dart';
 import 'package:foddies/views/pages/home/components/products/product_item.dart';
 import 'package:foddies/views/widgets/see_all_button.dart';
 
-SliverToBoxAdapter productsGrid(HomeController homeController, title) {
+SliverToBoxAdapter productsGrid(
+    HomeController homeController, title, BuildContext context) {
   return SliverToBoxAdapter(
     child: SizedBox(
       //color: AppColor.testColor,
@@ -15,7 +17,14 @@ SliverToBoxAdapter productsGrid(HomeController homeController, title) {
                 left: 20,
                 right: 20.0,
               ),
-              child: SeeallButton(tap: () {}, title: title)),
+              child: SeeallButton(
+                  tap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => const SeeAllProduct()));
+                  },
+                  title: title)),
           const SizedBox(
             height: 4.0,
           ),

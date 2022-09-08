@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
           const Margin(),
           productBanners(context, homeController),
           productCategories(context, homeController),
-          productsGrid(homeController, "Popular Food"),
+          productsGrid(homeController, "Popular Food", context),
           promotionBanner(context, homeController),
-          productsGrid(homeController, "Popular Resturant"),
+          productsGrid(homeController, "Popular Resturant", context),
 
           //
 
@@ -79,8 +79,7 @@ class ProductAllGraid extends StatelessWidget {
               mainAxisExtent: 200.0,
               mainAxisSpacing: 10.0),
           delegate: SliverChildBuilderDelegate(
-              childCount: homeController.products.length,
-              (context, index) {
+              childCount: homeController.products.length, (context, index) {
             return ProductItemAll(
               productItem: homeController.products[index],
             );
